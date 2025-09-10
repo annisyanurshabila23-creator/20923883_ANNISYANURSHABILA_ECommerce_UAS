@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-BOOKIE SHOP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">K-BOOKIE</div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-links-list">
+                    <li><a href="#" onclick="showSection('home')">Home</a></li>
+                    <li><a href="#" onclick="showSection('products')">Products</a></li>
+                    <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                    <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+                    <li>
+                        <a href="#" onclick="showCart()" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+               <!-- Search Bar (desktop) -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." id="search-input">
+                    <button type="button" onclick="handleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <!-- Search Icon (mobile) -->
+                <div class="search-icon-mobile">
+                    <button type="button" onclick="toggleMobileSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>✨Selamat datang di K-BOOKIE!✨</h1>
+                 <p>Kami menyediakan Album KPOP, Novel, dan Berbagai Mainan anak</p>
+                 <p>Surganya Koleksi Penggemar Hanya di <b>K-BOOKIE!🤩</b></p>
+                 <p><b>Yuk, langsung aja Temukan yang kamu cari dengan harga terbaik!😉</b></p>
+                 <p>Happy shopping!🥰</p>
+
+                <a href="#" onclick="showSection('products')" class="btn">Belanja Sekarang</a>
+            </div>
+        </div>
+
+        <div class="container">
+             <!-- BAGIAN BARU UNTUK PRODUK PROMO -->
+            <div class="promo-section">
+                <div class="section-title">🔥 Penawaran Spesial Hanya 1 Hari! 🔥</div>
+                <div class="products-grid">
+                    <!-- Produk Promo 1 -->
+                    <div class="product-card promo"
+                         data-name="Novel-Tentang Kamu by Tere Liye"
+                         data-price="109000"
+                         data-promo-price="80000"
+                         data-description="Tentang Kamu adalah salah satu novel terbaik karya Tere Liye yang akan membawa kamu dalam perjalanan penuh emosi. Novel ini menceritakan tentang sebuah pencarian jati diri dan makna hidup melalui kisah seorang perempuan bernama Sri Ningsih. Cocok untuk kamu yang menyukai cerita mendalam dengan pesan moral yang kuat."
+                         data-image="images/produk16.jpeg"
+                         data-rating="4.9">
+                        <div class="product-image">
+                            <img src="images/produk16.jpeg" alt="Novel-Tentang Kamu by Tere Liye">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Novel-Tentang Kamu by Tere Liye</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                            </div>
+                            <p class="product-price">Rp 109.000</p>
+                            <p class="promo-price">Rp 80.000</p>
+                            <div class="product-actions">
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="action-btn cart-btn" data-name="Novel-Tentang Kamu by Tere Liye" data-price="80000">Keranjang</button>
+                                <button class="action-btn buy-btn" data-name="Novel-Tentang Kamu by Tere Liye" data-price="80000">Beli Sekarang</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Produk Promo 2 -->
+                    <div class="product-card promo"
+                         data-name="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)"
+                         data-price="225000"
+                         data-promo-price="180000"
+                         data-description="Album TXT - The Star Chapter: TOGETHER menghadirkan konsep penuh warna dan lagu-lagu yang menyentuh. Produk yang kami jual adalah album sealed dan original versi photobook random, lengkap dengan semua inclusions resmi. Pastikan kamu koleksi album eksklusif ini sebagai MOA sejati!"
+                         data-image="images/produk17.png"
+                         data-rating="4.9">
+                        <div class="product-image">
+                            <img src="images/produk17.png" alt="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.9)
+                            </div>
+                            <p class="product-price">Rp 225.000</p>
+                            <p class="promo-price">Rp 180.000</p>
+                            <div class="product-actions">
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="action-btn cart-btn" data-name="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)" data-price="180000">Keranjang</button>
+                                <button class="action-btn buy-btn" data-name="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)" data-price="180000">Beli Sekarang</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- AKHIR BAGIAN BARU UNTUK PRODUK PROMO -->
+
+            <br>
+            <br>
+             <!-- produk unggulan -->
+            <div class="section-title">Produk Unggulan</div>
+            <div class="products-grid">
+                <!-- produk unggulan 1 -->
+                <div class="product-card highlight-product" data-name="Album NCT Dream ISTJ-Photobook Version" data-price="185000" data-description="Album Original NCT Dream ISTJ photobook Version. Album ini hadir dengan konsep yang ceria dan unik, cocok untuk koleksi pribadi. Produk sealed dan original, berisi photocard dan booklet lengkap. Jangan lewatkan kesempatan untuk memiliki album hits dari NCT DREAM ini." data-image="images/produk1.jpeg" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="images/produk1.jpeg" alt="Album NCT Dream ISTJ-Photobook Version">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album NCT Dream ISTJ-Photobook Version</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                        </div>
+                        <p class="product-price">Rp 185.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album NCT Dream ISTJ-Photobook Version" data-price="185000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album NCT Dream ISTJ-Photobook Version" data-price="185000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- produk unggulan 2 -->
+                <div class="product-card highlight-product" data-name="Novel Cake Shop by Nana S." data-price="90000" data-description="Novel Cake Shop karya Nana S. mengajakmu menyelami manisnya perjuangan seorang wanita mewujudkan mimpinya membuka toko kue. Penuh dengan suka duka, persahabatan, dan romansa, buku ini akan membuatmu tersenyum dan termotivasi. Cocok untuk pecinta kisah hangat dan penuh semangat!" data-image="images/produk2.jpg" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="images/produk2.jpg" alt="Novel Cake Shop by Nana S.">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Novel Cake Shop by Nana S.</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                        </div>
+                        <p class="product-price">Rp 90.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Novel Cake Shop by Nana S." data-price="90000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Novel Cake Shop by Nana S." data-price="90000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- produk unggulan 3 -->
+                <div class="product-card highlight-product" data-name="Mainan Menara Angka Bertingkat" data-price="40000" data-description="Mainan Menara Angka Bertingkat Dirancang untuk membantu anak-anak belajar konsep dasar matematika seperti pengenalan angka." data-image="images/produk9.jpg" data-rating="4.7">
+                    <div class="product-image">
+                        <img src="images/produk9.jpg" alt="Mainan Menara Angka Bertingkat">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mainan Menara Angka Bertingkat</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.7)
+                        </div>
+                        <p class="product-price">Rp 40.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Mainan Menara Angka Bertingkat" data-price="40000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Mainan Menara Angka Bertingkat" data-price="40000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- produk unggulan 4 -->
+                <div class="product-card highlight-product" data-name="Album TXT - The Chaos Chapter : FREEZE (Random Ver)" data-price="200000" data-description="Album dari TXT, The Chaos Chapter : FREEZE. Album ini hadir dengan konsep yang estetik dan lagu-lagu yang mendalam. Produk yang dijual adalah album sealed dan original, dengan semua inclusions lengkap di dalamnya. Pastikan kamu memiliki album wajib ini sebagai MOA sejati." data-image="images/produk7a.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk7a.jpeg" alt="Album TXT - The Chaos Chapter : FREEZE (Random Ver)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album TXT - The Chaos Chapter : FREEZE (Random Ver)</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 200.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album TXT - The Chaos Chapter : FREEZE (Random Ver)" data-price="200000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album TXT - The Chaos Chapter : FREEZE (Random Ver)" data-price="200000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- AKHIR produk unggulan-->
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <div class="container">
+            <div class="section-title">PRODUK KAMI</div>
+            
+            <h2 style="margin-bottom: 1rem; color: #2c3e50;">Produk Album Kpop</h2>
+            <div class="products-grid">
+                <!-- Produk Album Kpop 1 -->
+                <div class="product-card highlight-product" data-name="Album NCT Dream ISTJ-Photobook Version" data-price="185000" data-description="Album Original NCT Dream ISTJ photobook Version. Album ini hadir dengan konsep yang ceria dan unik, cocok untuk koleksi pribadi. Produk sealed dan original, berisi photocard dan booklet lengkap. Jangan lewatkan kesempatan untuk memiliki album hits dari NCT DREAM ini." data-image="images/produk1.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk1.jpeg" alt="Album NCT Dream ISTJ-Photobook Version">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album NCT Dream ISTJ-Photobook Version</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 185.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album NCT Dream ISTJ-Photobook Version" data-price="185000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album NCT Dream ISTJ-Photobook Version" data-price="185000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk Album Kpop 2 -->
+                <div class="product-card highlight-product" data-name="Album TXT - The Chaos Chapter : FREEZE (Random Ver)" data-price="200000" data-description="Album dari TXT, The Chaos Chapter : FREEZE. Album ini hadir dengan konsep yang estetik dan lagu-lagu yang mendalam. Produk yang dijual adalah album sealed dan original, dengan semua inclusions lengkap di dalamnya. Pastikan kamu memiliki album wajib ini sebagai MOA sejati." data-image="images/produk7a.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk7a.jpeg" alt="Album TXT - The Chaos Chapter : FREEZE (Random Ver)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album TXT - The Chaos Chapter : FREEZE (Random Ver)</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 200.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album TXT - The Chaos Chapter : FREEZE (Random Ver)" data-price="200000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album TXT - The Chaos Chapter : FREEZE (Random Ver)" data-price="200000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk Album Kpop 3 -->
+                <div class="product-card highlight-product" data-name="Album NCT 127 - Favorite (The 3rd Album Repackage)" data-price="180000" data-description="Album repackage ke-3 dari NCT 127, Favorite. Dapatkan album sealed dan original ini untuk menikmati lagu-lagu hits NCT 127. Album ini berisi photocard dan inclusions menarik lainnya. Ideal untuk NCTzen yang ingin mendukung idolanya." data-image="images/produk5.jpg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk5.jpg" alt="Album NCT 127 - Favorite (The 3rd Album Repackage)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album NCT 127 - Favorite (The 3rd Album Repackage)</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 180.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album NCT 127 - Favorite (The 3rd Album Repackage)" data-price="180000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album NCT 127 - Favorite (The 3rd Album Repackage)" data-price="180000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk Album Kpop 4 -->
+                <div class="product-card highlight-product" data-name="Album BTS - Butter (Single Album Random Ver)" data-price="220000" data-description="Single album ikonik dari BTS, Butter. Tersedia dalam dua versi, Peaches dan Cream. Album ini cocok untuk ARMY yang ingin mengoleksi salah satu album tersukses BTS. Produk sealed dan original yang menjamin kelengkapan isi, termasuk photocard dan inclusions lainnya." data-image="images/produk10.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk10.jpeg" alt="Album BTS - Butter (Single Album Random Ver)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album BTS - Butter (Single Album Random Ver)</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 220.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album BTS - Butter (Single Album Random Ver)" data-price="220000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album BTS - Butter (Single Album Random Ver)" data-price="220000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin: 2rem 0 1rem; color: #2c3e50;">Products Novel</h2>
+            <div class="products-grid">
+                <!-- Novel 1 -->
+                <div class="product-card" data-name="Novel Cake Shop by Nana S." data-price="99000" data-description="Novel Cake Shop karya Nana S. mengajakmu menyelami manisnya perjuangan seorang wanita mewujudkan mimpinya membuka toko kue. Penuh dengan suka duka, persahabatan, dan romansa, buku ini akan membuatmu tersenyum dan termotivasi. Cocok untuk pecinta kisah hangat dan penuh semangat!" data-image="images/produk2.jpg" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="images/produk2.jpg" alt="Novel Cake Shop by Nana S.">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Novel Cake Shop by Nana S.</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                        </div>
+                        <p class="product-price">Rp 99.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Novel Cake Shop by Nana S." data-price="99000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Novel Cake Shop by Nana S." data-price="99000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Novel 2 -->
+                <div class="product-card" data-name="Novel Hidup Itu Murah Yang Mahal Gengsi Kita BY Sabrina Ara" data-price="60000" data-description="Temukan rahasia hidup lebih ringan dan bebas dari tekanan sosial dalam novel inspiratif 'Hidup Itu Murah yang Mahal Gengsi Kita' karya Sabrina Ara. Buku ini mengungkap bagaimana gengsi seringkali membuat hidup terasa mahal dan penuh beban, padahal sebenarnya hidup bisa dinikmati dengan sederhana dan jujur. Dengan bahasa yang mudah dipahami dan penuh refleksi, buku ini memberikan panduan praktis untuk melepaskan diri dari kebiasaan membandingkan diri dan konsumsi berlebihan. Cocok untuk kaum muda yang ingin menjalani hidup dengan jujur tanpa terbebani oleh gengsi berlebihan." data-image="images/produk4.jpg" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="images/produk4.jpg" alt="Novel Hidup Itu Murah Yang Mahal Gengsi Kita BY Sabrina Ara">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Novel Hidup Itu Murah Yang Mahal Gengsi Kita BY Sabrina Ara</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                        </div>
+                        <p class="product-price">Rp 60.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Novel Hidup Itu Murah Yang Mahal Gengsi Kita BY Sabrina Ara" data-price="60000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Novel Hidup Itu Murah Yang Mahal Gengsi Kita BY Sabrina Ara" data-price="60000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Novel 3 -->
+                <div class="product-card" data-name="Novel Ayah, Ini Arahnya ke Mana, Ya? by Khoirul Trian" data-price="50000" data-description="Buku non-fiksi yang menyentuh hati karya Khoirul Trian. Cocok untuk siapa pun yang sedang mencari arah dalam hidup dan ingin menemukan jalan pulang. Sampulnya yang simpel namun penuh makna membuatnya menarik untuk dibaca dan dikoleksi." data-image="images/produk12.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk12.jpeg" alt="Novel Ayah, Ini Arahnya ke Mana, Ya? by Khoirul Trian">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Novel Ayah, Ini Arahnya ke Mana, Ya? by Khoirul Trian</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 50.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Novel Ayah, Ini Arahnya ke Mana, Ya? by Khoirul Trian" data-price="50000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Novel Ayah, Ini Arahnya ke Mana, Ya? by Khoirul Trian" data-price="50000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Novel 4 -->
+                <div class="product-card" data-name="Novel Malioboro at Midnight by Skysphire" data-price="99000" data-description="Novel romansa yang membawa Anda ke suasana malam di Jalan Malioboro, Yogyakarta, karya Skysphire. Buku ini cocok untuk Anda yang menyukai cerita dengan latar tempat yang kuat, penuh misteri, dan romansa yang membuat penasaran." data-image="images/produk13.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk13.jpeg" alt="Novel Malioboro at Midnight by Skysphire">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album Stray Kids - 5-STAR (Limited Ver.)</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 99.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Novel Malioboro at Midnight by Skysphire" data-price="99000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Novel Malioboro at Midnight by Skysphire" data-price="99000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin: 2rem 0 1rem; color: #2c3e50;">Mainan Anak</h2>
+            <div class="products-grid">
+                <!-- Mainan 1 -->
+                <div class="product-card" data-name="Mainan Briks Kartun[Random]" data-price="6000" data-description="Mainan Briks adalah mainan lego anak dengan beragam karakter kartun. mainan ini cocok untuk anak 3+, maianan yang dapat membantu mengasah otak, merancang kesabaran dan kreatifitas anak. Cocok untuk anak usia 4+" data-image="images/produk6.jpg" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="images/produk6.jpg" alt="Mainan Briks">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mainan Briks Kartun[Random]</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                        </div>
+                        <p class="product-price">Rp 6.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Mainan Briks Kartun[Random]" data-price="6000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Mainan Briks Kartun[Random]" data-price="6000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mainan 2 -->
+                <div class="product-card" data-name="Mainan Menara Angka Bertingkat" data-price="40000" data-description="Mainan Menara Angka Bertingkat Dirancang untuk membantu anak-anak belajar konsep dasar matematika seperti pengenalan angka. Cocok untuk anak usia 2+" data-image="produk_puzzle_hewan.jpg" data-rating="4.6">
+                    <div class="product-image">
+                        <img src="images/produk9.jpg" alt="Mainan Menara Angka Bertingkat">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mainan Menara Angka Bertingkat</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.6)
+                        </div>
+                        <p class="product-price">Rp 40.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Mainan Menara Angka Bertingkat" data-price="40000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Mainan Menara Angka Bertingkat" data-price="40000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mainan 3 -->
+                <div class="product-card" data-name="Set Mainan Dokter-dokteran Anak" data-price="50000" data-description="Set mainan dokter-dokteran lengkap dengan stetoskop, suntikan, dan alat lainnya. Mengembangkan imajinasi dan empati anak." data-image="images/produk15.jpeg" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="images/produk15.jpeg" alt="Mainan Dokter">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Set Mainan Dokter-dokteran Anak</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                        </div>
+                        <p class="product-price">Rp 50.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Set Mainan Dokter-dokteran Anak" data-price="50000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Set Mainan Dokter-dokteran Anak" data-price="50000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mainan 4 -->
+                <div class="product-card" data-name="Mainan Figur Dino Set" data-price="30000" data-description="Ajak si kecil berpetualang ke dunia dinosaurus dengan set figur dino kecil ini! Setiap set berisi berbagai jenis dinosaurus mini yang dirancang detail dan penuh warna. Terbuat dari bahan plastik berkualitas tinggi yang aman untuk anak-anak, mainan ini tidak hanya menghibur, tetapi juga edukatif, yang dapat membantu anak-anak mengenal nama dan bentuk dinosaurus seperti T-Rex, Triceratops, Brachiosaurus, dan banyak lagi." data-image="images/produk8.jpg" data-rating="4.7">
+                    <div class="product-image">
+                        <img src="images/produk8.jpg" alt="Mainan Figur Dino Set">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mainan Figur Dino Set</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.7)
+                        </div>
+                        <p class="product-price">Rp 30.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Mainan Figur Dino Set" data-price="30000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Mainan Figur Dino Set" data-price="30000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin: 2rem 0 1rem; color: #2c3e50;">New Arrival</h2>
+            <div class="products-grid">
+                <!-- New Product 1 -->
+                <div class="product-card new-product" data-name="Album ENHYPEN - ROMANCE : UNTOLD (Random ver.)" data-price="290000" data-description="Album terbaru dari ENHYPEN, ROMANCE : UNTOLD, tersedia dalam dua versi, Daydream dan Untold. Album ini cocok untuk ENGENE yang ingin melengkapi koleksi album mereka. Setiap album dijamin sealed dan original langsung dari Korea, berisi semua inclusions lengkap seperti photocard, poster, dan booklet." data-image="images/produk11.jpeg" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="images/produk11.jpeg" alt="Album ENHYPEN - ROMANCE : UNTOLD (Random ver.)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album ENHYPEN - ROMANCE : UNTOLD (Random ver.)</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                        </div>
+                        <p class="product-price">Rp 290.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album ENHYPEN - ROMANCE : UNTOLD (Random ver.)" data-price="290000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album ENHYPEN - ROMANCE : UNTOLD (Random ver.)" data-price="290000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Product 2 -->
+                <div class="product-card new-product" data-name="Novel Azzamine by Sophie Aulia" data-price="99000" data-description="Novel romansa karya Sophie Aulia yang menceritakan kisah Azzam dan Jasmine. Dengan sampul yang lembut dan dreamy, buku ini cocok untuk Anda yang menyukai cerita cinta yang manis dan penuh makna." data-image="images/produk13.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk13.jpeg" alt="Novel Azzamine by Sophie Aulia">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Novel Azzamine by Sophie Aulia</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 99.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Novel Azzamine by Sophie Aulia" data-price="99000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Novel Azzamine by Sophie Aulia" data-price="99000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Product 3 -->
+                <div class="product-card new-product" data-name="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)" data-price="225000" data-description="Album TXT - The Star Chapter: TOGETHER menghadirkan konsep penuh warna dan lagu-lagu yang menyentuh. Produk yang kami jual adalah album sealed dan original versi photobook random, lengkap dengan semua inclusions resmi. Pastikan kamu koleksi album eksklusif ini sebagai MOA sejati!" data-image="images/produk17.png" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk17.png" alt="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 225.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)" data-price="225000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Album TXT - The Star Chapter: TOGETHER (Photobook Random ver.)" data-price="225000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Product 4 -->
+                <div class="product-card new-product" data-name="Novel-Tentang Kamu by Tere Liye" data-price="109000" data-description="Tentang Kamu adalah salah satu novel terbaik karya Tere Liye yang akan membawa kamu dalam perjalanan penuh emosi. Novel ini menceritakan tentang sebuah pencarian jati diri dan makna hidup melalui kisah seorang perempuan bernama Sri Ningsih. Cocok untuk kamu yang menyukai cerita mendalam dengan pesan moral yang kuat." data-image="images/produk16.jpeg" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="images/produk16.jpeg" alt="Novel-Tentang Kamu by Tere Liye">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Novel-Tentang Kamu by Tere Liye</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.9)
+                        </div>
+                        <p class="product-price">Rp 109.000</p>
+                        <div class="product-actions">
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="action-btn cart-btn" data-name="Novel-Tentang Kamu by Tere Liye" data-price="109000">Keranjang</button>
+                            <button class="action-btn buy-btn" data-name="Novel-Tentang Kamu by Tere Liye" data-price="109000">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">About Us</div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Selamat datang di K-BOOKIE, surganya para pecinta buku, penggemar K-pop, dan orang tua yang mencari mainan edukatif untuk buah hati! 💖</p>
+                    <p>Kami hadir sebagai toko online yang menyediakan beragam pilihan produk untuk memenuhi semua passion Anda. Di sini, Anda bisa menemukan:</p>
+                    <p>📚 Buku Impianmu: Ratusan koleksi buku dari berbagai genre, mulai dari fiksi, non-fiksi, self-improvement, hingga buku anak-anak yang akan menemani waktu me-time Anda. Temukan cerita yang menginspirasi dan pengetahuan yang mencerahkan di setiap halaman.</p>
+                    <p>🎤 Koleksi K-pop Terlengkap: Untuk para K-popers sejati, kami punya merchandise terbaru dan terlengkap dari grup idola kesayanganmu. Mulai dari album, lightstick, photocard, hingga pernak-pernik eksklusif yang wajib kamu miliki!</p>
+                    <p>🧸 Mainan Edukatif & Ceria: Bagi eomma dan appa, K-BOOKIE menyediakan segudang mainan anak yang tidak hanya lucu, tetapi juga edukatif. Mainan-mainan ini dirancang untuk merangsang kreativitas, motorik, dan kecerdasan si kecil, membuat proses belajar menjadi lebih menyenangkan.</p>
+                    <p>K-BOOKIE diciptakan dengan satu tujuan: menjadi surga belanja online bagi Anda yang mencintai literasi, budaya Korea, dan ingin memberikan yang terbaik untuk tumbuh kembang si kecil. Kami berkomitmen untuk memberikan pengalaman belanja yang mudah, aman, dan menyenangkan.</p>
+                    <p>Jelajahi koleksi kami sekarang juga dan temukan produk impian Anda!</p>
+                    <p>Happy shopping!Saranghaeyo!🥰</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/logo3.jpg" alt="k-bookie Shop">
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 2rem; color: #2c3e50;">Our Values</h2>
+           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+    <div class="value-card" style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+        <h3 style="color: #020e2b; margin-bottom: 0.5rem;">Quality</h3>
+        <p>Kami sangat selektif dalam memilih setiap item produk hang kami tawarkan. Kami selalu memastikan produk yang disediakan berkualitas, baik produk buku, merchandise kpop hingga mainan anak.</p>
+    </div>
+    <div class="value-card" style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+        <h3 style="color: #020e2b; margin-bottom: 0.5rem;">Customer Service</h3>
+        <p>Kepuasan pelanggan adalah prioritas kami. Tim k-bookie selalu siap membantu anda kapan pun dengan pelayan yang ramah dan tulus.</p>
+    </div>
+    <div class="value-card" style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+        <h3 style="color: #020e2b; margin-bottom: 0.5rem;">Innovation</h3>
+        <p>Kami selalu berinovasi untuk menghadirkan koleksi terbaru dan pengalaman belanja yang menyenangkan bagi Anda.</p>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">Contact Us</div>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📞</div>
+                    <h3>Phone</h3>
+                    <p>0821-1681-6297</p>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📧</div>
+                    <h3>Email</h3>
+                    <p>annisyanurshabila23@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📱</div>
+                    <h3>Instagram</h3>
+                    <p>@KBOOKIE_STORE</p>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎵</div>
+                    <h3>TikTok</h3>
+                    <p>@K-BOOKIE</p>
+                </div>
+            </div>
+            
+            <h2 style="text-align: center; margin: 2rem 0 1rem; color: #2c3e50;">Send Us a Message</h2>
+            <form style="max-width: 600px; margin: 0 auto; background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Name</label>
+                    <input type="text" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Email</label>
+                    <input type="email" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Message</label>
+                    <textarea style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; min-height: 150px;"></textarea>
+                </div>
+                <button type="submit" style="background-color: #3498db; color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background-color 0.3s; width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>K-BOOKIE</h3>
+                    <p>Belanja Impianmu, Hadirkan Senyumanmu.</p>
+                    <P>Hanya di K-BOOKIE!🥰</P>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#" onclick="showSection('products')">Products</a></li>
+                        <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                        <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+                    </ul>
+                </div>
+               
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li>WhatsApp: 082116816297</li>
+                        <li>Instagram: @KBOOKIE_STORE</li>
+                        <li>TikTok: @K-BOOKIE</li>
+                        <li>Email: annisyanurshabila23@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 K-BOOKIE SHOP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-total">
+                Total: <span id="cart-total-price">Rp 0</span>
+            </div>
+            <button onclick="checkout()" class="btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h2>Detail Pembayaran</h2>
+            <div class="payment-form-group">
+                <label for="receiver-name">Nama Penerima:</label>
+                <input type="text" id="receiver-name" required>
+            </div>
+            <div class="payment-form-group">
+                <label for="delivery-address">Alamat Pengiriman:</label>
+                <textarea id="delivery-address" required></textarea>
+            </div>
+            <div class="payment-form-group">
+                <label for="phone-number">Nomor Telepon:</label>
+                <input type="text" id="phone-number" required>
+            </div>
+            <div class="payment-form-group">
+                <label for="payment-method">Metode Pembayaran:</label>
+                <select id="payment-method" required>
+                    <option value="">Pilih Metode Pembayaran</option>
+                    <option value="Transfer Bank">Transfer Bank</option>
+                    <option value="E-Wallet">E-Wallet</option>
+                    <option value="Kartu Kredit/Debit">Kartu Kredit/Debit</option>
+                    <option value="COD (Cash On Delivery)">COD (Cash On Delivery)</option>
+                </select>
+            </div>
+            <p>Total yang harus dibayar: <span id="payment-total-amount">Rp 0</span></p>
+            <button onclick="processPayment()" class="btn">Bayar Sekarang</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle checkmark-icon"></i>
+            <h2>Pembayaran Berhasil!</h2>
+            <p>Terima kasih atas pesanan Anda. Pesanan Anda akan segera diproses.</p>
+            <div id="confirmation-details">
+                <p><strong>Detail Pesanan:</strong></p>
+                <p>Nama Penerima: <span id="conf-receiver-name"></span></p>
+                <p>Alamat Pengiriman: <span id="conf-delivery-address"></span></p>
+                <p>Nomor Telepon: <span id="conf-phone-number"></span></p>
+                <p>Metode Pembayaran: <span id="conf-payment-method"></span></p>
+                <p>Total Pembayaran: <span id="conf-total-amount"></span></p>
+                <p>Produk yang Dibeli:</p>
+                <ul id="conf-product-list">
+                    <!-- Product list will be dynamically added here -->
+                </ul>
+            </div>
+            <button onclick="closeConfirmationModal()" class="btn">OK</button>
+        </div>
+    </div>
+
+    <!-- Notification Modal (for "added to cart" messages) -->
+    <div id="notification-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeNotification()">&times;</span>
+            <p id="notification-message"></p>
+            <button onclick="closeNotification()" class="btn">OK</button>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductDetailModal()">&times;</span>
+            <img id="product-detail-image" src="" alt="Product Image" class="product-detail-image">
+            <h2 id="product-detail-name" class="product-detail-name"></h2>
+            <div id="product-detail-rating" class="product-detail-rating"></div>
+            <p id="product-detail-price" class="product-detail-price"></p>
+            <p id="product-detail-description" class="product-detail-description"></p>
+            <div class="product-quantity-group">
+                <label for="detail-quantity">Jumlah:</label>
+                <input type="number" id="detail-quantity" class="quantity-input" value="1" min="1">
+            </div>
+            <div class="product-detail-actions">
+                <button class="action-btn cart-btn" id="detail-add-to-cart">Keranjang</button>
+                <button class="action-btn buy-btn" id="detail-buy-now">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
